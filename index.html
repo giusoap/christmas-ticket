@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christmas Gift 🎄</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #f6f4ef;
+    overflow: hidden;
+  }
+
+  /* ---------- Snow ---------- */
+  .snow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, white, transparent),
+      radial-gradient(2px 2px at 120px 180px, white, transparent),
+      radial-gradient(1.5px 1.5px at 260px 90px, white, transparent),
+      radial-gradient(1.5px 1.5px at 340px 240px, white, transparent);
+    background-size: 400px 400px;
+    animation: snow 18s linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes snow {
+    from { background-position: 0 0; }
+    to   { background-position: 0 400px; }
+  }
+
+  /* ---------- Layout ---------- */
+  .ticket {
+    position: relative;
+    height: 100%;
+    padding: 16px;
+  }
+
+  /* Corner images */
+  .corner {
+    position: absolute;
+    width: 28vw;
+    max-width: 140px;
+  }
+
+  .top-left { top: 10px; left: 10px; }
+  .top-right { top: 10px; right: 10px; }
+  .bottom-left { bottom: 10px; left: 10px; }
+  .bottom-right { bottom: 10px; right: 10px; }
+
+  /* Center */
+  .center {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* ---------- Ticket ---------- */
+  .content {
+    position: relative;
+    background: #fffdf8;
+    padding: 28px 22px 32px;
+    border-radius: 16px;
+    max-width: 420px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  }
+
+  /* Perforation line */
+  .content::after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 88px;
+    border-bottom: 2px dashed #ddd;
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: 1.9rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  /* Stub */
+  .stub {
+    margin-top: 28px;
+    padding-top: 18px;
+  }
+
+  .download {
+    display: block;
+    padding: 16px;
+    background: #b11226;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+
+  .download:active {
+    transform: scale(0.97);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="snow"></div>
+
+<div class="ticket">
+
+  <!-- Corner images -->
+  <img src="images/tl.jpg" class="corner top-left" alt="">
+  <img src="images/tr.jpg" class="corner top-right" alt="">
+  <img src="images/bl.jpg" class="corner bottom-left" alt="">
+  <img src="images/br.jpg" class="corner bottom-right" alt="">
+
+  <!-- Center ticket -->
+  <div class="center">
+    <div class="content">
+
+      <h1>Merry Christmas 🎄</h1>
+
+      <p>
+        This ticket is good for quiet hours,
+        warm light, and one new story.
+      </p>
+
+      <div class="stub">
+        <a href="book.epub" download class="download">
+          🎁 Tap to Unwrap Your Book
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
