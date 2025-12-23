@@ -18,11 +18,12 @@
     overflow: hidden;
   }
 
-  /* ---------- Snow ---------- */
+  /* ---------- Snow (BACKGROUND) ---------- */
   .snow {
     position: fixed;
     inset: 0;
     pointer-events: none;
+    z-index: 0;
     background-image:
       radial-gradient(2px 2px at 20px 30px, white, transparent),
       radial-gradient(2px 2px at 120px 180px, white, transparent),
@@ -30,7 +31,7 @@
       radial-gradient(1.5px 1.5px at 340px 240px, white, transparent);
     background-size: 400px 400px;
     animation: snow 18s linear infinite;
-    opacity: 0.8;
+    opacity: 0.6;
   }
 
   @keyframes snow {
@@ -43,6 +44,7 @@
     position: relative;
     height: 100%;
     padding: 16px;
+    z-index: 1; /* ABOVE snow */
   }
 
   /* Corner images */
