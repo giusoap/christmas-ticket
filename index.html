@@ -14,29 +14,29 @@
     height: 100%;
     margin: 0;
     font-family: Georgia, serif;
-    background: #f6f4ef;
+    background: linear-gradient(180deg, #f9f6f1 0%, #efe9df 100%);
     overflow: hidden;
   }
 
-  /* ---------- Snow (BACKGROUND) ---------- */
+  /* ---------- Snow (background) ---------- */
   .snow {
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
     background-image:
-      radial-gradient(2px 2px at 20px 30px, white, transparent),
-      radial-gradient(2px 2px at 120px 180px, white, transparent),
-      radial-gradient(1.5px 1.5px at 260px 90px, white, transparent),
-      radial-gradient(1.5px 1.5px at 340px 240px, white, transparent);
-    background-size: 400px 400px;
-    animation: snow 18s linear infinite;
-    opacity: 0.6;
+      radial-gradient(1.5px 1.5px at 20px 30px, white, transparent),
+      radial-gradient(1.5px 1.5px at 120px 180px, white, transparent),
+      radial-gradient(1px 1px at 260px 90px, white, transparent),
+      radial-gradient(1px 1px at 340px 240px, white, transparent);
+    background-size: 380px 380px;
+    animation: snow 22s linear infinite;
+    opacity: 0.45;
   }
 
   @keyframes snow {
     from { background-position: 0 0; }
-    to   { background-position: 0 400px; }
+    to   { background-position: 0 380px; }
   }
 
   /* ---------- Layout ---------- */
@@ -44,22 +44,43 @@
     position: relative;
     height: 100%;
     padding: 16px;
-    z-index: 1; /* ABOVE snow */
+    z-index: 1;
   }
 
-  /* Corner images */
+  /* ---------- Corner images ---------- */
   .corner {
     position: absolute;
     width: 28vw;
     max-width: 140px;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
   }
 
-  .top-left { top: 10px; left: 10px; }
-  .top-right { top: 10px; right: 10px; }
-  .bottom-left { bottom: 10px; left: 10px; }
-  .bottom-right { bottom: 10px; right: 10px; }
+  .top-left {
+    top: 12px;
+    left: 12px;
+    transform: rotate(-3deg);
+  }
 
-  /* Center */
+  .top-right {
+    top: 12px;
+    right: 12px;
+    transform: rotate(3deg);
+  }
+
+  .bottom-left {
+    bottom: 12px;
+    left: 12px;
+    transform: rotate(2deg);
+  }
+
+  .bottom-right {
+    bottom: 12px;
+    right: 12px;
+    transform: rotate(-2deg);
+  }
+
+  /* ---------- Center ---------- */
   .center {
     height: 100%;
     display: flex;
@@ -69,56 +90,75 @@
     padding: 20px;
   }
 
-  /* ---------- Ticket ---------- */
+  /* ---------- Ticket card ---------- */
   .content {
     position: relative;
-    background: #fffdf8;
-    padding: 28px 22px 32px;
-    border-radius: 16px;
+    background: #fffefb;
+    padding: 30px 24px 34px;
+    border-radius: 18px;
     max-width: 420px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    box-shadow:
+      0 18px 40px rgba(0,0,0,0.15),
+      inset 0 0 0 1px rgba(0,0,0,0.04);
+    animation: fadeIn 1.2s ease-out both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Perforation line */
   .content::after {
     content: "";
     position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 88px;
-    border-bottom: 2px dashed #ddd;
+    left: 20px;
+    right: 20px;
+    bottom: 92px;
+    border-bottom: 2px dashed #e0ddd7;
   }
 
   h1 {
     margin-top: 0;
-    font-size: 1.9rem;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
   }
 
   p {
     font-size: 1.05rem;
-    line-height: 1.5;
-    margin-bottom: 24px;
+    line-height: 1.55;
+    margin-bottom: 26px;
+    color: #333;
   }
 
-  /* Stub */
+  /* ---------- Stub ---------- */
   .stub {
-    margin-top: 28px;
+    margin-top: 30px;
     padding-top: 18px;
   }
 
   .download {
     display: block;
     padding: 16px;
-    background: #b11226;
+    background: linear-gradient(180deg, #b11226, #8f0e1f);
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(177,18,38,0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
 
   .download:active {
     transform: scale(0.97);
+    box-shadow: 0 4px 10px rgba(177,18,38,0.35);
   }
 </style>
 </head>
