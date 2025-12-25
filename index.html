@@ -1,186 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Christmas Ticket 🎄</title>
 
 <style>
-  * {
-    box-sizing: border-box;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Georgia, serif;
-    background: linear-gradient(180deg, #f9f6f1 0%, #efe9df 100%);
-    overflow: hidden;
-  }
+html, body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(180deg, #f9f6f1 0%, #efe9df 100%);
+}
 
-  /* ---------- Snow (background) ---------- */
-  .snow {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background-image:
-      radial-gradient(1.5px 1.5px at 20px 30px, white, transparent),
-      radial-gradient(1.5px 1.5px at 120px 180px, white, transparent),
-      radial-gradient(1px 1px at 260px 90px, white, transparent),
-      radial-gradient(1px 1px at 340px 240px, white, transparent);
-    background-size: 380px 380px;
-    animation: snow 22s linear infinite;
-    opacity: 0.45;
-  }
+/* ---------- Snow ---------- */
+.snow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, white, transparent),
+    radial-gradient(1.5px 1.5px at 120px 180px, white, transparent),
+    radial-gradient(1px 1px at 260px 90px, white, transparent),
+    radial-gradient(1px 1px at 340px 240px, white, transparent);
+  background-size: 380px 380px;
+  animation: snow 22s linear infinite;
+  opacity: 0.4;
+}
 
-  @keyframes snow {
-    from { background-position: 0 0; }
-    to   { background-position: 0 380px; }
-  }
+@keyframes snow {
+  from { background-position: 0 0; }
+  to   { background-position: 0 380px; }
+}
 
-  /* ---------- Layout ---------- */
+/* ---------- Layout ---------- */
+.ticket {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 80px 16px 40px;
+}
+
+/* ---------- Corner images ---------- */
+.corner {
+  position: absolute;
+  width: 22vw;
+  max-width: 120px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.top-left { top: 12px; left: 12px; transform: rotate(-3deg); }
+.top-right { top: 12px; right: 12px; transform: rotate(3deg); }
+.bottom-left { bottom: 12px; left: 12px; transform: rotate(2deg); }
+.bottom-right { bottom: 12px; right: 12px; transform: rotate(-2deg); }
+
+/* ---------- Center ---------- */
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+/* ---------- Ticket card ---------- */
+.content {
+  position: relative;
+  background: #fffefb;
+  padding: 32px 24px 36px;
+  border-radius: 18px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.15),
+    inset 0 0 0 1px rgba(0,0,0,0.04);
+  animation: fadeIn 1.2s ease-out both;
+  overflow: hidden;
+}
+
+/* background image */
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/cl.jpg") center / contain no-repeat;
+  opacity: 0.16;
+  z-index: 0;
+}
+
+.content > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.9rem;
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #333;
+}
+
+/* ---------- Stub ---------- */
+.stub {
+  margin-top: 28px;
+}
+
+.download {
+  display: block;
+  padding: 16px;
+  background: linear-gradient(180deg, #b11226, #8f0e1f);
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(177,18,38,0.35);
+}
+
+/* ---------- MOBILE FIX ---------- */
+@media (max-width: 600px) {
+
   .ticket {
-    position: relative;
-    height: 100%;
-    padding: 16px;
-    z-index: 1;
+    padding: 24px 12px 40px;
   }
 
-  /* ---------- Corner images ---------- */
-  .corner {
-    position: absolute;
-    width: 28vw;
-    max-width: 140px;
-    border-radius: 12px;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-  }
-
-  .top-left {
-    top: 12px;
-    left: 12px;
-    transform: rotate(-3deg);
-  }
-
-  .top-right {
-    top: 12px;
-    right: 12px;
-    transform: rotate(3deg);
-  }
-
-  .bottom-left {
-    bottom: 12px;
-    left: 12px;
-    transform: rotate(2deg);
-  }
-
+  /* hide bottom corners on mobile */
+  .bottom-left,
   .bottom-right {
-    bottom: 12px;
-    right: 12px;
-    transform: rotate(-2deg);
+    display: none;
   }
 
-  /* ---------- Center ---------- */
-  .center {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-  }
-
-  /* ---------- Ticket card ---------- */
-  .content {
-    position: relative;
-    background: #fffefb;
-    padding: 30px 24px 34px;
-    border-radius: 18px;
-    max-width: 420px;
-    box-shadow:
-      0 18px 40px rgba(0,0,0,0.15),
-      inset 0 0 0 1px rgba(0,0,0,0.04);
-    animation: fadeIn 1.2s ease-out both;
-    overflow: hidden;
-  }
-
-  /* Background image behind text */
-  .content::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("images/cl.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain; /* change to 70% or cover if desired */
-    opacity: 0.22;
-    z-index: 0;
-  }
-
-  /* Ensure text stays above background image */
-  .content > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Perforation line */
-  .content::after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    bottom: 92px;
-    border-bottom: 2px dashed #e0ddd7;
-    z-index: 1;
+  .corner {
+    width: 90px;
   }
 
   h1 {
-    margin-top: 0;
-    font-size: 2rem;
-    letter-spacing: 0.5px;
+    font-size: 1.7rem;
   }
 
   p {
-    font-size: 1.05rem;
-    line-height: 1.55;
-    margin-bottom: 26px;
-    color: #333;
+    font-size: 1rem;
   }
-
-  /* ---------- Stub ---------- */
-  .stub {
-    margin-top: 30px;
-    padding-top: 18px;
-  }
-
-  .download {
-    display: block;
-    padding: 16px;
-    background: linear-gradient(180deg, #b11226, #8f0e1f);
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 12px;
-    box-shadow: 0 8px 18px rgba(177,18,38,0.35);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .download:active {
-    transform: scale(0.97);
-    box-shadow: 0 4px 10px rgba(177,18,38,0.35);
-  }
+}
 </style>
 </head>
 
@@ -190,13 +163,11 @@
 
 <div class="ticket">
 
-  <!-- Corner images -->
   <img src="images/tl.jpg" class="corner top-left" alt="">
   <img src="images/tr.jpg" class="corner top-right" alt="">
   <img src="images/bl.jpg" class="corner bottom-left" alt="">
   <img src="images/br.jpg" class="corner bottom-right" alt="">
 
-  <!-- Center ticket -->
   <div class="center">
     <div class="content">
 
@@ -212,9 +183,7 @@
       </p>
 
       <div class="stub">
-        <a href="book.epub" download class="download">
-          🎁 Sorpresa
-        </a>
+        <a href="book.epub" download class="download">🎁 Sorpresa</a>
       </div>
 
     </div>
