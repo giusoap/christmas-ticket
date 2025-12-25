@@ -42,16 +42,17 @@ html, body {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  padding: 80px 16px 40px;
+  padding: 56px 16px 40px;
 }
 
 /* ---------- Corner images ---------- */
 .corner {
   position: absolute;
-  width: 22vw;
-  max-width: 120px;
+  width: 26vw;
+  max-width: 140px;
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  z-index: 1;
 }
 
 .top-left { top: 12px; left: 12px; transform: rotate(-3deg); }
@@ -68,10 +69,10 @@ html, body {
 /* ---------- Ticket card ---------- */
 .content {
   position: relative;
-  background: #fffefb;
-  padding: 32px 24px 36px;
+  background: rgba(255, 254, 251, 0.88); /* semi-trasparente */
+  padding: 28px 20px 30px;
   border-radius: 18px;
-  max-width: 420px;
+  max-width: 360px;   /* PIÙ STRETTO */
   width: 100%;
   text-align: center;
   box-shadow:
@@ -79,15 +80,16 @@ html, body {
     inset 0 0 0 1px rgba(0,0,0,0.04);
   animation: fadeIn 1.2s ease-out both;
   overflow: hidden;
+  z-index: 2; /* sopra le immagini */
 }
 
-/* background image */
+/* background symbol */
 .content::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url("images/cl.jpg") center / contain no-repeat;
-  opacity: 0.16;
+  opacity: 0.15;
   z-index: 0;
 }
 
@@ -103,55 +105,51 @@ html, body {
 
 h1 {
   margin-top: 0;
-  font-size: 1.9rem;
+  font-size: 1.7rem;
 }
 
 p {
-  font-size: 1.05rem;
-  line-height: 1.55;
+  font-size: 0.95rem;     /* PIÙ PICCOLO */
+  line-height: 1.5;
   color: #333;
 }
 
 /* ---------- Stub ---------- */
 .stub {
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .download {
   display: block;
-  padding: 16px;
+  padding: 14px;
   background: linear-gradient(180deg, #b11226, #8f0e1f);
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: bold;
   border-radius: 12px;
   box-shadow: 0 8px 18px rgba(177,18,38,0.35);
 }
 
-/* ---------- MOBILE FIX ---------- */
+/* ---------- MOBILE TUNING ---------- */
 @media (max-width: 600px) {
 
-  .ticket {
-    padding: 24px 12px 40px;
-  }
-
-  /* hide bottom corners on mobile */
-  .bottom-left,
-  .bottom-right {
-    display: none;
-  }
-
   .corner {
-    width: 90px;
+    width: 22vw;      /* immagini più visibili */
+    max-width: 110px;
+  }
+
+  .content {
+    max-width: 300px; /* lascia spazio ai lati */
+    padding: 22px 18px 26px;
   }
 
   h1 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 </style>
