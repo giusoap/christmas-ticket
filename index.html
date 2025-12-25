@@ -101,6 +101,26 @@
       0 18px 40px rgba(0,0,0,0.15),
       inset 0 0 0 1px rgba(0,0,0,0.04);
     animation: fadeIn 1.2s ease-out both;
+    overflow: hidden;
+  }
+
+  /* Background image behind text */
+  .content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("images/cl.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* change to 70% or cover if desired */
+    opacity: 0.18;
+    z-index: 0;
+  }
+
+  /* Ensure text stays above background image */
+  .content > * {
+    position: relative;
+    z-index: 1;
   }
 
   @keyframes fadeIn {
@@ -122,6 +142,7 @@
     right: 20px;
     bottom: 92px;
     border-bottom: 2px dashed #e0ddd7;
+    z-index: 1;
   }
 
   h1 {
@@ -186,7 +207,7 @@
         I bambini, attratti dal mondo dei dinosauri, cercano un contatto con un passato neanderthaliano dimenticato: ricordi ereditati da una vita precedente.
         Per te, cara lettrice, Neanderthal è più che mai vita presente e vissuta, e vederti fremere nel voler celebrare l’oggi (in contrasto con le umane tendenze nostalgiche) mi riempie il cuore di gioia.
         Non posso donarti biglietti gratuiti, ma posso offrirti il mio tempo per selezionare un adeguato e fedele compagno di viaggio alla scoperta di questa tua identità paleolitica nascosta (ma non poi così tanto).
-
+        <br><br>
         ⬇️ ⬇️ ⬇️
       </p>
 
