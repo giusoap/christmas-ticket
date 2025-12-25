@@ -42,23 +42,23 @@ html, body {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  padding: 56px 16px 40px;
+  padding: 52px 12px 36px;
 }
 
 /* ---------- Corner images ---------- */
 .corner {
   position: absolute;
-  width: 26vw;
-  max-width: 140px;
+  width: 24vw;
+  max-width: 130px;
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.18);
   z-index: 1;
 }
 
-.top-left { top: 12px; left: 12px; transform: rotate(-3deg); }
-.top-right { top: 12px; right: 12px; transform: rotate(3deg); }
-.bottom-left { bottom: 12px; left: 12px; transform: rotate(2deg); }
-.bottom-right { bottom: 12px; right: 12px; transform: rotate(-2deg); }
+.top-left { top: 10px; left: 10px; transform: rotate(-3deg); }
+.top-right { top: 10px; right: 10px; transform: rotate(3deg); }
+.bottom-left { bottom: 10px; left: 10px; transform: rotate(2deg); }
+.bottom-right { bottom: 10px; right: 10px; transform: rotate(-2deg); }
 
 /* ---------- Center ---------- */
 .center {
@@ -69,27 +69,27 @@ html, body {
 /* ---------- Ticket card ---------- */
 .content {
   position: relative;
-  background: rgba(255, 254, 251, 0.88); /* semi-trasparente */
-  padding: 28px 20px 30px;
-  border-radius: 18px;
-  max-width: 360px;   /* PIÙ STRETTO */
+  background: rgba(255, 254, 251, 0.84); /* più trasparente */
+  padding: 20px 16px 22px;
+  border-radius: 16px;
+  max-width: 320px; /* desktop */
   width: 100%;
   text-align: center;
   box-shadow:
-    0 18px 40px rgba(0,0,0,0.15),
+    0 16px 34px rgba(0,0,0,0.14),
     inset 0 0 0 1px rgba(0,0,0,0.04);
   animation: fadeIn 1.2s ease-out both;
   overflow: hidden;
-  z-index: 2; /* sopra le immagini */
+  z-index: 2;
 }
 
-/* background symbol */
+/* background image */
 .content::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url("images/cl.jpg") center / contain no-repeat;
-  opacity: 0.15;
+  opacity: 0.14;
   z-index: 0;
 }
 
@@ -99,35 +99,35 @@ html, body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
   margin-top: 0;
-  font-size: 1.7rem;
+  font-size: 1.55rem;
 }
 
 p {
-  font-size: 0.95rem;     /* PIÙ PICCOLO */
-  line-height: 1.5;
+  font-size: 0.88rem;
+  line-height: 1.45;
   color: #333;
 }
 
 /* ---------- Stub ---------- */
 .stub {
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .download {
   display: block;
-  padding: 14px;
+  padding: 12px;
   background: linear-gradient(180deg, #b11226, #8f0e1f);
   color: white;
   text-decoration: none;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: bold;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 8px 18px rgba(177,18,38,0.35);
 }
 
@@ -135,21 +135,21 @@ p {
 @media (max-width: 600px) {
 
   .corner {
-    width: 22vw;      /* immagini più visibili */
+    width: 22vw;
     max-width: 110px;
   }
 
   .content {
-    max-width: 300px; /* lascia spazio ai lati */
-    padding: 22px 18px 26px;
+    max-width: 260px; /* 🔴 CARD ANCORA PIÙ PICCOLA */
+    padding: 18px 14px 20px;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
 </style>
